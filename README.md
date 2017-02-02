@@ -6,7 +6,7 @@ They provide a JSON RPC api for Node.js ; for documentation see: http://docs.red
 ## Install
 
 ```
-  npm install xero
+  npm install redstag
 ```
 
 ## Usage
