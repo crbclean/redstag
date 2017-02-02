@@ -1,0 +1,30 @@
+{
+  "name": "redstag",
+  "version": "1.0.0",
+  "description": "Redstag Node.js Api",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/awb99/redstag.git"
+  },
+  "keywords": [
+    "redstag",
+    "node.js",
+    "api"
+  ],
+  "author": "awb99",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/awb99/redstag/issues"
+  },
+  "homepage": "https://github.com/awb99/redstag#readme",
+  "dependencies": {
+    "async": "^2.1.4",
+    "jayson": "^2.0.2",
+    "ramda": "^0.23.0",
+    "shortid": "^2.2.6"
+  }
+}
