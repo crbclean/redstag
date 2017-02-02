@@ -148,6 +148,7 @@ function queryInventory () {
 var fedex = require ("./fedexcost.js");
 
 fedex.readCSV ( () => { console.log("fedex CSV data loaded."); } );
+module.exports.readCSV = readCSV;
 module.exports.fedexCost = fedex.fedexCost;
 
 
