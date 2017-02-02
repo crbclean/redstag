@@ -1,6 +1,7 @@
 var async = require ("async");
 var R = require ("ramda");
-var redstag = require ("redstag");
+
+var redstag = require ("./index.js");
 
 
 function myConnect (next) {

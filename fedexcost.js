@@ -1,12 +1,15 @@
 var zipcodes = require('zipcodes');
 var csv = require('csv-parser');
 var fs = require('fs');
-
+var path = require('path');
 
 var dictWeight = {};
 
 function readCSV (next) {
-   fs.createReadStream('fedexGround.csv')
+   //var fileName = 'fedexGround.csv';
+   var fileName = path.join  (__dirname, 'fedexGround.csv');
+   console.log("fileName: " + fileName);
+   fs.createReadStream(fileName)
       .pipe(csv())
       .on('end',   function () { next(); } )
       .on('data', function (data) {
