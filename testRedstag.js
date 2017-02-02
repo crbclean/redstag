@@ -62,13 +62,15 @@ function createDemoOrder (next) {
 }
 
 
-
+// Execute async functions one by one (in a series)
+// Comment out one line in the array, to not execute a function
 
 async.series (
     [
         myConnect,
         queryOrders,
-        createDemoOrder
+        createDemoOrder,
+        //myOwnTask
     ]);
 
 
