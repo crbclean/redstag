@@ -34,5 +34,13 @@ node node_modules/redstag/testRedstag.js
 
 ```
 
+## Shipping Cost Estimation
 
+Shipping Cost Estimation to ship from Nashville, TX is included in the file testZipCode.js; it uses distance estimation in miles
+from "zipcodes" library; a fedex Zone lookup based on this distance, and then it reads the fedesGround.csv file to lookup the price
+for a weight in lb for a given zone. Only supports zones 2 to 8.
+
+```
+ printInfo (78230, 2.0, "Texas-SanAntonio");
+```
         

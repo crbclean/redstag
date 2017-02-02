@@ -1,6 +1,6 @@
 {
   "name": "redstag",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Redstag Node.js Api",
   "main": "index.js",
   "scripts": {
@@ -23,8 +23,10 @@
   "homepage": "https://github.com/awb99/redstag#readme",
   "dependencies": {
     "async": "^2.1.4",
+    "csv-parser": "^1.11.0",
     "jayson": "^2.0.2",
     "ramda": "^0.23.0",
-    "shortid": "^2.2.6"
+    "shortid": "^2.2.6",
+    "zipcodes": "^2.1.0"
   }
 }
