@@ -1,6 +1,6 @@
 var zipcodes = require('zipcodes');
-var csv = require('csv-parser')
-var fs = require('fs')
+var csv = require('csv-parser');
+var fs = require('fs');
 
 
 var dictWeight = {};
@@ -22,7 +22,7 @@ function readCSV (next) {
             parseFloat (data.z8)
         ];
         dictWeight[weight] = pricesForWeight;
-      })
+      });
 }
 
 
@@ -45,16 +45,15 @@ function fedexZone (distance) {
     return 8;
 }
 
-function printInfo (clientZipCode, weight, clientInfo) {
+function fedexCost (clientZipCode, weight) {
     var zipRedstag = 37914;
-    var dist = zipcodes.distance(zipRedstag, clientZipCode); //In Miles
-    var zone = fedexZone(dist);
-    var price = fedexPrice (weight, zone);
-    console.log (`distance to ${clientInfo} is: ${dist} miles; this is fedex Zone ${zone} for ${weight} lb the fedexGround Price is: ${price}.`);
+    var data = {};
+    data.distance = zipcodes.distance(zipRedstag, clientZipCode); //In Miles
+    data.zone = fedexZone(data.distance);
+    data.price = fedexPrice (weight, data.zone);
+    return data;
 }
 
 
-
-readCSV( () => {
-    printInfo (78230, 2.0, "Texas-SanAntonio");
-});
+module.exports.readCSV = readCSV;
+module.exports.fedexCost = fedexCost;

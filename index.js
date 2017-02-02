@@ -143,6 +143,14 @@ function queryInventory () {
 // rate.quote    (not yet available, according to documentation)
 
 
+// fedexCost estimate
+
+var fedex = require ("./fedexcost.js");
+
+fedex.readCSV ( () => { console.log("fedex CSV data loaded."); } );
+module.exports.fedexCost = fedex.fedexCost;
+
+
 // Export
 
 module.exports.connect = connect;
