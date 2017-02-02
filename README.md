@@ -26,5 +26,13 @@ redstag.connect ("username", "tokenPassword", (err) => {
 
 ```
 
+## More complex demo
+
+```
+
+node node_modules/redstag/testRedstag.js
+
+```
+
 
         
