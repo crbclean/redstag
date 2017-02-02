@@ -3,7 +3,13 @@
 http://redstagfulfillment.com/ is a very cool fullfillment company in Tennessee, USA.
 They provide a JSON RPC api for Node.js ; for documentation see: http://docs.redstagfulfillment.com/
 
-usage:
+## Install
+
+```
+  npm install xero
+```
+
+## Usage
 
 ```
 require ("redstag");
