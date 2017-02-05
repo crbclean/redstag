@@ -120,7 +120,7 @@ function orderInfo (redstagOrderId, callback) {
 
 
 function orderUpdate (redstagOrderId, shippingAddress, orderAdditionalData, callback) {
-    clientrequest( "order.edit, [redstagOrderId,shippingAddress, orderAdditionalData], function (err, res) {
+    clientrequest( "order.edit", [redstagOrderId,shippingAddress, orderAdditionalData], function (err, res) {
         if (err) {
             console.log("orderUpdate error: " + err);
             callback (true, []);
