@@ -10,6 +10,13 @@ var async = require ("async");
 var endpoint_prodcution = "https://redstagfulfillment.com/backend/api/jsonrpc";
 var endpoint_sandbox = "https://redstagfulfillment.com/sandbox/api/jsonrpc";
 
+
+var isDebug = true;
+function setDebug ( enabled ) {
+    isDebug = enabled;
+}
+
+
 var client = undefined;
 var sessionKey = undefined;
 
@@ -17,7 +24,7 @@ function connect (user, apiKey, callback) {
     client = rpc.client.https( endpoint_prodcution);
 
     client.on ("request", (data) => {
-        console.log("request sent.." + JSON.stringify (data));
+        if (isDebug) console.log("request sent.." + JSON.stringify (data));
     });
 
 
@@ -74,7 +81,7 @@ function createOrder (orderItems, shippingAddress, orderAdditionalData, callback
                 console.log("createOrder error: " + res.error.message);
                 callback (true, res.error.message);
             } else {
-                console.log(res);
+                //console.log(res);
                 callback (false, res.result);
             }
         }
@@ -150,13 +157,17 @@ function queryAllShipments (callback) {
 // package.search
 
 
-function queryInventory () {
-    var id = shortid.generate(); // a unique id
-
+function queryInventory (callback) {
     var skuArray = null; // if skuArray is null, then all sku will be returned
-    client.call( {"method": "inventory.list", "params": [skuArray], "id": id}, function (err, res) {
-        if (err) { console.log(err); }
-        else { console.log(res); }
+    clientrequest( "inventory.list", [skuArray], function (err, res) {
+        if (err) { 
+           console.log(err); 
+           callback (err, null); 
+        }
+        else { 
+            console.log(res); 
+            callback (err, res.results);
+        }
     });
 }
 
@@ -173,14 +184,18 @@ module.exports.readCSV = fedex.readCSV;
 module.exports.fedexCost = fedex.fedexCost;
 
 
-// Export
+// Export ***************************************************
 
+module.exports.setDebug = setDebug;
 module.exports.connect = connect;
 
+// Order
 module.exports.queryAllOrders = queryAllOrders;
 module.exports.createOrder = createOrder;
 module.exports.orderInfo = orderInfo;
 
+// Shipments
 module.exports.queryAllShipments = queryAllShipments;
 
+// Inventory
 module.exports.queryInventory = queryInventory;
