@@ -165,7 +165,7 @@ function queryInventory (callback) {
            callback (err,[]);
         }
         else { 
-            console.log(res);
+            //console.log(res);
             callback (err, res.result);
         }
     });
