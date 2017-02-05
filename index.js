@@ -161,12 +161,12 @@ function queryInventory (callback) {
     var skuArray = null; // if skuArray is null, then all sku will be returned
     clientrequest( "inventory.list", [skuArray], function (err, res) {
         if (err) { 
-           console.log(err); 
-           callback (err, null); 
+           console.log("inventory query error");
+           callback (err,[]);
         }
         else { 
-            console.log(res); 
-            callback (err, res.results);
+            console.log(res);
+            callback (err, res.result);
         }
     });
 }
