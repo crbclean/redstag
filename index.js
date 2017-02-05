@@ -101,12 +101,12 @@ function orderInfo (redstagOrderId, callback) {
     var resultFields = "*"; // * equals to all fields
     clientrequest( "order.info", [redstagOrderId,resultFields], function (err, res) {
         if (err) {
-            console.log("queryOrderInfo error: " + err);
+            //console.log("queryOrderInfo error: " + err);
             callback (true, []);
         }
         else {
-            console.log("queryOrderInfo: result: " + JSON.stringify(res));
-            callback (false, res.result.results);
+            //console.log("queryOrderInfo: result: " + JSON.stringify(res));
+            callback (false, res.result.result);
         }
     });
 }
