@@ -119,6 +119,19 @@ function orderInfo (redstagOrderId, callback) {
 }
 
 
+function orderUpdate (redstagOrderId, shippingAddress, orderAdditionalData, callback) {
+    clientrequest( "order.edit, [redstagOrderId,shippingAddress, orderAdditionalData], function (err, res) {
+        if (err) {
+            console.log("orderUpdate error: " + err);
+            callback (true, []);
+        }
+        else {
+            console.log("orderUpdate JSON: " + JSON.stringify(res));
+            callback (false, res.result);
+        }
+    });
+}
+
 
 
 
@@ -193,6 +206,7 @@ module.exports.connect = connect;
 module.exports.queryAllOrders = queryAllOrders;
 module.exports.createOrder = createOrder;
 module.exports.orderInfo = orderInfo;
+module.exports.orderUpdate = orderUpdate;
 
 // Shipments
 module.exports.queryAllShipments = queryAllShipments;
