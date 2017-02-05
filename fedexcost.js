@@ -34,7 +34,7 @@ function fedexPrice (weight, zone) {
     if (weight >150.0) return undefined;
 
     var roundedWeight = Math.round (weight); // only round number estimates in dictionary.
-   return dictWeight[weight][zone-2];
+   return dictWeight[roundedWeight][zone-2];
 }
 
 
