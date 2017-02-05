@@ -105,8 +105,8 @@ function orderInfo (redstagOrderId, callback) {
             callback (true, []);
         }
         else {
-            //console.log("queryOrderInfo: result: " + JSON.stringify(res));
-            callback (false, res.result.result);
+            //console.log("queryOrderInfo: " + JSON.stringify(res));
+            callback (false, res.result);
         }
     });
 }
