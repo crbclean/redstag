@@ -31,7 +31,9 @@ function readCSV (next) {
 
 function fedexPrice (weight, zone) {
    if (weight <1.0) return undefined;
-   if (weight >150.0) return undefined;
+    if (weight >150.0) return undefined;
+
+    var roundedWeight = Math.Round (weight); // only round number estimates in dictionary.
    return dictWeight[weight][zone-2];
 }
 
