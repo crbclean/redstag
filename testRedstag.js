@@ -62,6 +62,22 @@ function createDemoOrder (next) {
     });
 }
 
+function queryShipments (next) {
+    redstag.queryAllShipments( (err, shipments) => {
+        if (err) console.log ("queryShipments  error");
+        else {
+            console.log ("shipments: " + shipments.length);
+            shipments.map ( shipment => {
+                //console.log (order.created_at + " "+ order.order_ref + " " + order.state + " shiphawkId:" + order.order_id + " " + order.shippin$
+                console.log(JSON.stringify(shipment));
+            });
+        }
+        next (err);
+    });
+}
+
+
+
 
 // Execute async functions one by one (in a series)
 // Comment out one line in the array, to not execute a function
@@ -71,7 +87,8 @@ async.series (
         myConnect,
         queryOrders,
         createDemoOrder,
-        //myOwnTask
+        //myOwnTask,
+        queryShipments
     ]);
 
 

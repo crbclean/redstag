@@ -106,14 +106,19 @@ function queryAllOrders (callback) {
 // A packing slip will be printed for each shipment and if multiple packages are required for one shipment they will
 // be linked to the same master tracking number if supported by the carrier.
 
-function queryAllShipments () {
-    var id = shortid.generate(); // a unique id
+function queryAllShipments (callback) {
     var filter = null;
     var options = null;
     var resultFields = "*"; // * equals to all fields
-    client.call( {"method": "shipment.search", "params": [filter,options,resultFields], "id": id}, function (err, res) {
-        if (err) { console.log(err); }
-        else { console.log(res); }
+    clientrequest( "shipment.search", [filter,options,resultFields], function (err, res) {
+        if (err) {
+           console.log(err);
+           callback (true, []);
+        }
+        else {
+           console.log(res);
+           callback (false, res.result.results);
+        }
     });
 }
 
