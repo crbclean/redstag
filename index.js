@@ -87,15 +87,31 @@ function queryAllOrders (callback) {
     var resultFields = "*"; // * equals to all fields
     clientrequest( "order.search", [filter,options,resultFields], function (err, res) {
         if (err) {
-            console.log("queryAllOrders error: " + err);
+            //console.log("queryAllOrders error: " + err);
             callback (true, []);
         }
         else {
-            console.log("queryAllOrders: result: " + JSON.stringify(res));
+            //console.log("queryAllOrders: result: " + JSON.stringify(res));
             callback (false, res.result.results);
         }
     });
 }
+
+function orderInfo (redstagOrderId, callback) {
+    var resultFields = "*"; // * equals to all fields
+    clientrequest( "order.info", [redstagOrderId,resultFields], function (err, res) {
+        if (err) {
+            console.log("queryOrderInfo error: " + err);
+            callback (true, []);
+        }
+        else {
+            console.log("queryOrderInfo: result: " + JSON.stringify(res));
+            callback (false, res.result.results);
+        }
+    });
+}
+
+
 
 
 
@@ -109,14 +125,14 @@ function queryAllOrders (callback) {
 function queryAllShipments (callback) {
     var filter = null;
     var options = null;
-    var resultFields = "*"; // * equals to all fields
+    var resultFields = "*"; // * equals to all fields, but excluding "items" and "tracking_numbers".
     clientrequest( "shipment.search", [filter,options,resultFields], function (err, res) {
         if (err) {
-           console.log(err);
+           //console.log(err);
            callback (true, []);
         }
         else {
-           console.log(res);
+           //console.log(res);
            callback (false, res.result.results);
         }
     });
@@ -163,6 +179,7 @@ module.exports.connect = connect;
 
 module.exports.queryAllOrders = queryAllOrders;
 module.exports.createOrder = createOrder;
+module.exports.orderInfo = orderInfo;
 
 module.exports.queryAllShipments = queryAllShipments;
 
