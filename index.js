@@ -231,6 +231,22 @@ function queryInventory (callback) {
 
 // rate.quote    (not yet available, according to documentation)
 
+// store list
+
+function queryStores (callback) {
+    clientrequest( "stores.list", [], function (err, res) {
+        if (err) {
+           console.log("stores query error");
+           callback (err,[]);
+        }
+        else {
+            console.log(res);
+            callback (err, res.result.results);
+        }
+    });
+}
+
+
 
 // fedexCost estimate
 
@@ -298,9 +314,13 @@ module.exports.createDelivery = createDelivery;
 // Inventory
 module.exports.queryInventory = queryInventory;
 
+// Stores
+module.exports.queryStores = queryStores;
+
 // Shipping Methods
 module.exports.shippingMethodsFEDEX = shippingMethodsFEDEX;
 module.exports.shippingMethodsUPS = shippingMethodsUPS;
 module.exports.shippingMethodesUSPS = shippingMethodsUSPS;
 module.exports.shippingMethodsEXTERNAL = shippingMethodsEXTERNAL;
 module.exports.shippingMethodsAVAILABLE = shippingMethodsAVAILABLE;
+
