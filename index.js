@@ -43,11 +43,12 @@ function connect (user, apiKey, callback) {
 }
 
 
+// a helper function, to make a request to redstag; a wrapper around the  jayson rpc library
 function clientrequest (method, methodparameter, callback) {
     var id = shortid.generate(); // a unique id
     var paramHeader = [sessionKey, method];
     var fullParameter = paramHeader.concat ([methodparameter]);
-    //console.log("parameter extended: " + JSON.stringify(fullParameter));
+     //console.log("parameter extended: " + JSON.stringify(fullParameter));
     client.request ("call", fullParameter, id, callback );
 }
 
@@ -66,7 +67,6 @@ function clientrequest (method, methodparameter, callback) {
 // complete    complete                              Entire order has been packaged and labeled for shipping.
 // canceled    canceled                              Order has been canceled.
 // holded      holded, delayed_shipment              Order is on hold.
-
 
 
 function createOrder (orderItems, shippingAddress, orderAdditionalData, callback) {
@@ -174,6 +174,30 @@ function queryAllShipments (callback) {
 
 // package.search
 
+// deliveries (incoming ASN and RMA)
+
+
+function queryDeliveries (callback) {
+    var filter = null; // null: receive all deliveries
+    var options = null;
+    clientrequest( "delivery.search", [filter, options], function (err, res) {
+        if (err) { 
+           console.log("deliveries query error");
+           callback (err,[]);
+        }
+        else { 
+            console.log(res);
+            callback (err, res.result);
+        }
+    });
+}
+
+
+
+
+
+// inventory
+
 
 function queryInventory (callback) {
     var skuArray = null; // if skuArray is null, then all sku will be returned
@@ -251,6 +275,9 @@ module.exports.orderUpdate = orderUpdate;
 
 // Shipments
 module.exports.queryAllShipments = queryAllShipments;
+
+// Deliveries
+module.exports.queryDeliveries = queryDeliveries;
 
 // Inventory
 module.exports.queryInventory = queryInventory;
