@@ -181,12 +181,12 @@ function queryDeliveries (callback) {
     var filter = null; // null: receive all deliveries
     var options = null;
     clientrequest( "delivery.search", [filter, options], function (err, res) {
-        if (err) { 
+        if (err) {
            console.log("deliveries query error");
            callback (err,[]);
         }
-        else { 
-            console.log(res);
+        else {
+            //console.log(res);
             callback (err, res.result.results);
         }
     });
