@@ -234,7 +234,7 @@ function queryInventory (callback) {
 // store list
 
 function queryStores (callback) {
-    clientrequest( "stores.list", [], function (err, res) {
+    clientrequest( "store.list", [], function (err, res) {
         if (err) {
            console.log("stores query error");
            callback (err,[]);
