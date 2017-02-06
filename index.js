@@ -187,7 +187,7 @@ function queryDeliveries (callback) {
         }
         else { 
             console.log(res);
-            callback (err, res.result);
+            callback (err, res.result.results);
         }
     });
 }
