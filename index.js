@@ -192,9 +192,24 @@ function queryDeliveries (callback) {
     });
 }
 
-
-
-
+function createDelivery  (deliveryType , deliveryData, deliveryItems, callback) {
+    var storeCode = null;
+    clientrequest( "delivery.create", [deliveryType, deliveryData, deliveryItems ], function (err, res) {
+        if (err) {
+            console.log(err);
+            callback (err, "error - connectivity?");
+        }
+        else {
+            if (res.error !== undefined) {
+                console.log("createDelivery error: " + res.error.message);
+                callback (true, res.error.message);
+            } else {
+                console.log(res);
+                callback (false, res.result);
+            }
+        }
+    });
+}
 
 // inventory
 
@@ -278,6 +293,7 @@ module.exports.queryAllShipments = queryAllShipments;
 
 // Deliveries
 module.exports.queryDeliveries = queryDeliveries;
+module.exports.createDelivery = createDelivery;
 
 // Inventory
 module.exports.queryInventory = queryInventory;
