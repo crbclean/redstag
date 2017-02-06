@@ -260,4 +260,4 @@ module.exports.shippingMethodsFEDEX = shippingMethodsFEDEX;
 module.exports.shippingMethodsUPS = shippingMethodsUPS;
 module.exports.shippingMethodesUSPS = shippingMethodsUSPS;
 module.exports.shippingMethodsEXTERNAL = shippingMethodsEXTERNAL;
-module.exports.shippingMEthodsAVAILABLE = shippingMethodsAVAILABLE;
+module.exports.shippingMethodsAVAILABLE = shippingMethodsAVAILABLE;
