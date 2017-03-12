@@ -95,7 +95,7 @@ function queryAllOrders (callback) {
     queryOrders (filter, options, resultFields, callback);
 }
 
-function queryOrders (filter, options, resultFields) {
+function queryOrders (filter, options, resultFields, callback) {
     clientrequest( "order.search", [filter,options,resultFields], function (err, res) {
         if (err) {
             //console.log("queryAllOrders error: " + err);
