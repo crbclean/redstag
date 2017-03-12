@@ -92,6 +92,10 @@ function queryAllOrders (callback) {
     var filter = null; // null means no filter
     var options = null; // null means no options
     var resultFields = "*"; // * equals to all fields
+    queryOrders (filter, options, resultFields);
+}
+
+function queryOrders (filter, options, resultFields) {
     clientrequest( "order.search", [filter,options,resultFields], function (err, res) {
         if (err) {
             //console.log("queryAllOrders error: " + err);
@@ -300,6 +304,7 @@ module.exports.connect = connect;
 
 // Order
 module.exports.queryAllOrders = queryAllOrders;
+module.exports.queryOrders = queryOrders;
 module.exports.createOrder = createOrder;
 module.exports.orderInfo = orderInfo;
 module.exports.orderUpdate = orderUpdate;
