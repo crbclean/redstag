@@ -31,13 +31,10 @@ function readCSV (next) {
 
 function fedexPrice (weight, zone) {
    if (weight <1.0) return undefined;
-    if (weight >150.0) return undefined;
-
-    var roundedWeight = Math.round (weight); // only round number estimates in dictionary.
+   if (weight >150.0) return fedexPrice(150.0, zone) + fedexPrice(weight-150.0, zone);
+   var roundedWeight = Math.round (weight); // only round number estimates in dictionary.
    return dictWeight[roundedWeight][zone-2];
 }
-
-
 
 
 function fedexZone (distance) {
@@ -56,6 +53,8 @@ function fedexCost (clientZipCode, weight) {
     data.distance = zipcodes.distance(zipRedstag, clientZipCode); //In Miles
     data.zone = fedexZone(data.distance);
     data.price = fedexPrice (weight, data.zone);
+    data.usbperlb = data.price / weight;
+    data.usdperlb = +data.usbperlb.toFixed( 2 ); // round to cents 
     return data;
 }
 
