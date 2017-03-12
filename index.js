@@ -92,7 +92,7 @@ function queryAllOrders (callback) {
     var filter = null; // null means no filter
     var options = null; // null means no options
     var resultFields = "*"; // * equals to all fields
-    queryOrders (filter, options, resultFields);
+    queryOrders (filter, options, resultFields, callback);
 }
 
 function queryOrders (filter, options, resultFields) {
