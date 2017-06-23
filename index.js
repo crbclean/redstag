@@ -251,6 +251,24 @@ function queryStores (callback) {
 }
 
 
+// warehouse list
+
+function queryWarehouses (callback) {
+    clientrequest( "warehouses.list", [], function (err, res) {
+        if (err) {
+           console.log("warehouses query error");
+           callback (err,[]);
+        }
+        else {
+            console.log(res);
+            callback (err, res.result.results);
+        }
+    });
+}
+
+
+
+
 
 // fedexCost estimate
 
@@ -321,6 +339,9 @@ module.exports.queryInventory = queryInventory;
 
 // Stores
 module.exports.queryStores = queryStores;
+
+// Warehouses
+module.exports.queryWarehouses = queryWarehouses;
 
 // Shipping Methods
 module.exports.shippingMethodsFEDEX = shippingMethodsFEDEX;
