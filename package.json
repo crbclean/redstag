@@ -1,6 +1,6 @@
 {
   "name": "redstag",
-  "version": "1.0.44",
+  "version": "1.0.45",
   "description": "Redstag Node.js Api",
   "main": "index.js",
   "scripts": {

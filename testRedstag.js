@@ -28,6 +28,8 @@ function queryOrders (next) {
 
 function createDemoOrder (next) {
 
+    var storeCode = null;
+
     var orderItems = [
         // { "sku": "PC50", "qty": 1 }
           { "sku": "product2", "qty": 3 }
@@ -55,7 +57,7 @@ function createDemoOrder (next) {
     };
 
 
-    redstag.createOrder (orderItems, shippingAddress, orderAdditionalData,  (err, data) => {
+    redstag.createOrder (storeCode, orderItems, shippingAddress, orderAdditionalData,  (err, data) => {
         if (err) console.log("error creating order: " + data);
         else console.log ("order created successfully: " + JSON.stringify( data) );
         next();

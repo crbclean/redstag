@@ -69,8 +69,8 @@ function clientrequest (method, methodparameter, callback) {
 // holded      holded, delayed_shipment              Order is on hold.
 
 
-function createOrder (orderItems, shippingAddress, orderAdditionalData, callback) {
-    var storeCode = null;
+function createOrder (storeCode, orderItems, shippingAddress, orderAdditionalData, callback) {
+    //var storeCode = null; // for defaultCode, enter null.
     clientrequest( "order.create", [storeCode,orderItems,shippingAddress, orderAdditionalData], function (err, res) {
         if (err) {
             console.log(err);
