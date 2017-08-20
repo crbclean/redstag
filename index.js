@@ -245,7 +245,7 @@ function queryStores (callback) {
         }
         else {
             console.log(res);
-            callback (err, res.result.results);
+            callback (err, res.result);
         }
     });
 }
@@ -261,7 +261,7 @@ function queryWarehouses (callback) {
         }
         else {
             console.log(res);
-            callback (err, res.result.results);
+            callback (err, res.result);
         }
     });
 }
