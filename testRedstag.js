@@ -6,7 +6,9 @@ var redstag = require ("./index.js");
 
 function myConnect (next) {
     // add your username and token here
-    redstag.connect("demouser", "abslakdsf3jkdfjk", (err) => {
+    var user = "demouser";
+    var token = "abslakdsf3jkdfjk";
+    redstag.connect(user, token , (err) => {
         if (err) console.log ("myConnect.login error");
         else console.log ("myConnect.login connected!");
         next (err);
@@ -81,16 +83,35 @@ function queryShipments (next) {
 
 
 
+function queryDeliveries (next) {
+    redstag.queryDeliveries( (err, shipments) => {
+        if (err) console.log ("queryDeliveries  error");
+        else {
+            console.log ("deliveries: " + shipments.length);
+            shipments.map ( shipment => {
+                //console.log (order.created_at + " "+ order.order_ref + " " + order.state + " shiphawkId:" + order.order_id + " " + order.shippin$
+                //console.log(JSON.stringify(shipment));
+            });
+        }
+        next (err);
+    });
+}
+
+
+
 // Execute async functions one by one (in a series)
 // Comment out one line in the array, to not execute a function
 
 async.series (
     [
         myConnect,
+        // queries
         queryOrders,
-        createDemoOrder,
+        queryShipments,
+        queryDeliveries
+        // actions
+        //createDemoOrder,
         //myOwnTask,
-        queryShipments
     ]);
 
 
