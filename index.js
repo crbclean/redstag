@@ -183,7 +183,7 @@ function queryAllShipments (callback) {
 
 function queryDeliveries (callback) {
     var filter = null; // null: receive all deliveries
-    var options = null;
+    var options = { limit: 100, page: 1}; // Todo: Paging.  // was: null
     clientrequest( "delivery.search", [filter, options], function (err, res) {
         if (err) {
            console.log("deliveries query error");
