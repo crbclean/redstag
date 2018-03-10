@@ -248,10 +248,10 @@ async.series(
         // query
         queryStores,
         queryWarehouses,
-        //queryOrders,
+        queryOrders,
         //queryShipments,
         //queryInventory,
-        queryDeliveries,
+        //queryDeliveries,
 
         // modify
         //createDemoOrder,
