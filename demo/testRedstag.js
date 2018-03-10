@@ -1,13 +1,13 @@
 var async = require ("async");
 var R = require ("ramda");
 
-var redstag = require ("./index.js");
+var redstag = require ("../index.js");
 
 
 function myConnect (next) {
     // add your username and token here
     var user = "demouser";
-    var token = "abslakdsf3jkdfjk";
+    var token = "asdklfjadfjsadlfjsdalkfjasdklfjasdflj";
     redstag.connect(user, token , (err) => {
         if (err) console.log ("myConnect.login error");
         else console.log ("myConnect.login connected!");
@@ -67,7 +67,8 @@ function createDemoOrder (next) {
 }
 
 function queryShipments (next) {
-    redstag.queryAllShipments( (err, shipments) => {
+    var filter = null;
+    redstag.queryAllShipments(  (err, shipments) => {
         if (err) console.log ("queryShipments  error");
         else {
             console.log ("shipments: " + shipments.length);
@@ -81,10 +82,9 @@ function queryShipments (next) {
 }
 
 
-
-
 function queryDeliveries (next) {
-    redstag.queryDeliveries( (err, shipments) => {
+     var filter = null;
+    redstag.queryDeliveries( filter, (err, shipments) => {
         if (err) console.log ("queryDeliveries  error");
         else {
             console.log ("deliveries: " + shipments.length);

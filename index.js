@@ -3,6 +3,8 @@ shortid = require('shortid');
 var R = require ("ramda");
 var async = require ("async");
 
+var paginate = require("./paginate.js").paginate;
+
 // Redstag Fullfillment Api (www.redstagfullfilment.com)
 // Documentation: http://docs.redstagfulfillment.com/
 
@@ -180,10 +182,13 @@ function queryAllShipments (callback) {
 
 // deliveries (incoming ASN and RMA)
 
+function queryDeliveries (filter, callback) {
+    paginate ( queryDeliveriesPage, 100, filter, callback); 
+}
 
-function queryDeliveries (callback) {
-    var filter = null; // null: receive all deliveries
-    var options = { limit: 100, page: 1}; // Todo: Paging.  // was: null
+function queryDeliveriesPage (pageNumber, filter, callback) {
+    //var filter = null; // null: receive all deliveries
+    var options = { limit: 100, page: pageNumber}; // Todo: Paging.  // was: null
     clientrequest( "delivery.search", [filter, options], function (err, res) {
         if (err) {
            console.log("deliveries query error");
