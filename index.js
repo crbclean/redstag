@@ -355,3 +355,7 @@ module.exports.shippingMethodesUSPS = shippingMethodsUSPS;
 module.exports.shippingMethodsEXTERNAL = shippingMethodsEXTERNAL;
 module.exports.shippingMethodsAVAILABLE = shippingMethodsAVAILABLE;
 
+
+var helper = require("./helper.js");
+module.exports.DeliverySKUsummary = helper.DeliverySKUsummary;
+module.exports.DeliveryWeight=helper.DeliveryWeight;

@@ -1,0 +1,264 @@
+{
+    "delivery_id": "13586",
+    "stock_id": "2",
+    "website_id": "34",
+    "increment_id": "45000001",
+    "delivery_type": "asn",
+    "state": "complete",
+    "status": "complete",
+    "before_hold_state": null,
+    "before_hold_status":null,
+    "progress":"100",
+    "total_skus":"5",
+    "sender_name":"C.C.A.G. Crotti",
+    "carrier_name":"BDP ITALIA SRL",
+    "expected_delivery":"2016-12-20",
+    "delivered_at":"2016-12-22T01: 32: 32+00: 00",
+    "completed_at":"2016-12-23T20: 25: 55+00: 00",
+    "comments":null,
+    "merchant_ref":null,
+    "merchant_status":null,
+    "sender_ref":"164383",
+    "sender_ref_alt":null,
+    "num_containers":"5",
+    "num_labels":"1",
+    "total_container_weight":null,
+    "total_product_weight":null,
+    "special_requirements":null,
+    "auto_commit":"2",
+    "created_at":"2016-11-02T20: 37: 11+00: 00",
+    "updated_at":"2016-12-23T20: 25: 55+00: 00",
+    "order_id":null,
+    "warehouse_id":"2",
+    "items":[
+        {"delivery_item_id":"72396","delivery_id":"13586","product_id":"14256","qty_expected":"192.0000","qty_received":"96.0000","qty_shortage":"96.0000","qty_overage":"0.0000","qty_processed":"96.0000","qty_putaway":"96.0000","qty_committed":"96.0000","sku_merge_email_sent":"0","sku":"B853-DS/2"},
+        {"delivery_item_id":"72397","delivery_id":"13586","product_id":"14255","qty_expected":"192.0000","qty_received":"96.0000","qty_shortage":"96.0000","qty_overage":"0.0000","qty_processed":"96.0000","qty_putaway":"96.0000","qty_committed":"96.0000","sku_merge_email_sent":"0","sku":"B852-DS/2"},
+        {"delivery_item_id":"72398","delivery_id":"13586","product_id":"14254","qty_expected":"96.0000","qty_received":"48.0000","qty_shortage":"48.0000","qty_overage":"0.0000","qty_processed":"48.0000","qty_putaway":"48.0000","qty_committed":"48.0000","sku_merge_email_sent":"0","sku":"B851-DS/2"},
+        {"delivery_item_id":"72399","delivery_id":"13586","product_id":"14234","qty_expected":"96.0000","qty_received":"48.0000","qty_shortage":"48.0000","qty_overage":"0.0000","qty_processed":"48.0000","qty_putaway":"48.0000","qty_committed":"48.0000","sku_merge_email_sent":"0","sku":"B751-DS/2"},
+        {"delivery_item_id":"72400","delivery_id":"13586","product_id":"14231","qty_expected":"480.0000","qty_received":"240.0000","qty_shortage":"240.0000","qty_overage":"0.0000","qty_processed": "240.0000","qty_putaway": "240.0000","qty_committed": "240.0000","sku_merge_email_sent": "0","sku": "B750-DS/2"}
+    ],
+    "containers": [
+        {   "container_id": "35688",
+            "delivery_id": "13586",
+            "container_type_id":"1",
+            "damage_type":"none",
+            "weight_discrepancy":"none",
+            "tare_weight":"40.0000",
+            "weight":"614.0000",
+            "weighed_at":"2016-12-22 01:31:36",
+            "weighed_by":"320",
+            "contents":"a: 1: {i: 0;a: 3: {s: 16:\"delivery_item_id\";s:5:\"72400\";s:11:\"qty_counted\";i:120;s:12:\"qty_shortage\";i:0;}}",
+            "notes": null,
+            "total_skus": "1.0000"
+        },
+        {
+            "container_id": "35689",
+            "delivery_id": "13586",
+            "container_type_id": "1",
+            "damage_type": "none",
+            "weight_discrepancy": "none",
+            "tare_weight": "40.0000",
+            "weight": "555.0000",
+            "weighed_at": "2016-12-22 01:31:52",
+            "weighed_by": "320",
+            "contents":"a:2:{i:0;a:3:{s:16:\"delivery_item_id\";s:5:\"72398\";s:11:\"qty_counted\";i:48;s:12:\"qty_shortage\";i:0;}i:1;a:3:{s:16:\"delivery_item_id\";s:5:\"72399\";s:11:\"qty_counted\";i:48;s:12:\"qty_shortage\";i:0;}}",
+            "notes": null,
+            "total_skus": "2.0000"
+        },
+        {
+            "container_id": "35690",
+            "delivery_id": "13586",
+            "container_type_id": "1",
+            "damage_type": "none",
+            "weight_discrepancy": "none",
+            "tare_weight": "40.0000",
+            "weight": "613.0000",
+            "weighed_at":"2016-12-22 01: 32: 06",
+            "weighed_by":"320",
+            "contents":"a: 1: {i: 0;a: 3: {s: 16:\"delivery_item_id\";s:5:\"72400\";s:11:\"qty_counted\";i:120;s:12:\"qty_shortage\";i:0;}}",
+            "notes": null,
+            "total_skus": "1.0000"
+        },
+        {
+            "container_id": "35691",
+            "delivery_id": "13586",
+            "container_type_id": "1",
+            "damage_type": "none",
+            "weight_discrepancy": "none",
+            "tare_weight": "40.0000",
+            "weight": "616.0000",
+            "weighed_at":"2016-12-22 01: 32: 20",
+            "weighed_by":"320",
+            "contents":"a: 1: {i: 0;a: 3: {s: 16:\"delivery_item_id\";s:5:\"72397\";s:11:\"qty_counted\";i:96;s:12:\"qty_shortage\";i:0;}}",
+            "notes": null,
+            "total_skus": "1.0000"
+        },
+        {
+            "container_id":"35692",
+            "delivery_id":"13586",
+            "container_type_id":"1",
+            "damage_type":"none",
+            "weight_discrepancy":"none",
+            "tare_weight":"40.0000",
+            "weight":"605.0000",
+            "weighed_at":"2016-12-22 01: 32: 30",
+            "weighed_by":"320",
+            "contents":"a: 1: {i: 0;a: 3: {s: 16:\"delivery_item_id\";s:5:\"72396\";s:11:\"qty_counted\";i:96;s:12:\"qty_shortage\";i:0;}}",
+            "notes": null,
+            "total_skus": "1.0000"
+         }
+   ],
+   "exceptions": [
+         {
+            "delivery_exception_id": "19872",
+            "delivery_id": "13586",
+            "delivery_item_id": "72396",
+            "container_id": null,
+            "status": "approved",
+            "sign": "-1",
+            "reason": "shortage_missing",
+            "comment": null,
+            "qty": "96.0000"
+         },
+         {
+            "delivery_exception_id": "19873",
+            "delivery_id": "13586",
+            "delivery_item_id": "72397",
+            "container_id": null,
+            "status": "approved",
+            "sign": "-1",
+            "reason": "shortage_missing",
+            "comment": null,
+            "qty": "96.0000"
+         },
+         {
+            "delivery_exception_id": "19874",
+            "delivery_id": "13586",
+            "delivery_item_id": "72398",
+            "container_id": null,
+            "status": "approved",
+            "sign": "-1",
+            "reason": "shortage_missing",
+            "comment": null,
+            "qty": "48.0000"
+          },
+          {
+             "delivery_exception_id": "19875",
+             "delivery_id": "13586",
+             "delivery_item_id": "72399",
+             "container_id": null,
+             "status": "approved",
+             "sign": "-1",
+             "reason": "shortage_missing",
+             "comment": null,
+             "qty": "48.0000"
+          },
+          {
+             "delivery_exception_id": "19876",
+             "delivery_id": "13586",
+             "delivery_item_id": "72400",
+             "container_id": null,
+             "status": "approved",
+             "sign": "-1",
+             "reason": "shortage_missing",
+             "comment": null,
+             "qty": "240.0000"
+           }
+      ],
+      "status_history": [
+           {
+                "status": "new",
+                "comment": null,
+                "created_at": "2016-11-02T20:37:11+00:00"
+           },
+           {
+               "status": "accepting",
+               "comment": null,
+               "created_at": "2016-12-22T01:30:47+00:00"
+           },
+           {
+                "status": "accepted",
+                "comment":null,
+                "created_at":"2016-12-22T01: 32: 32+00: 00"
+           },
+           {
+               "status":"processing",
+               "comment":null,
+               "created_at":"2016-12-22T20: 17: 11+00: 00"
+               },
+           {
+               "status":"processing_exception",
+               "comment":null,
+               "created_at":"2016-12-23T03: 10: 19+00: 00"
+           },
+           {
+               "status":"processing_exception",
+               "comment":null,
+               "created_at":"2016-12-23T03: 10: 19+00: 00"
+           },
+           {
+               "status":"processing_exception",
+               "comment":null,
+               "created_at":"2016-12-23T03: 10: 19+00: 00"
+           },
+           {
+               "status":"processing_exception",
+               "comment":null,
+               "created_at":"2016-12-23T03: 10: 19+00: 00"
+            },
+            {
+                "status":"processing_exception",
+                "comment":null,"created_at":"2016-12-23T03: 10: 19+00: 00"
+            },
+            {
+                "status":"processing_exception",
+                "comment":null,
+                "created_at":"2016-12-23T03: 10: 19+00: 00"
+            },
+            {
+                "status":"processing_exception",
+                "comment":"Shortage confirmed, 1 pair of brushes equals1 unit.",
+                "created_at":"2016-12-23T03: 15: 18+00: 00"
+            },
+            {
+                "status":"processing_exception",
+                "comment":"Shortage confirmed,  1 pair of brushes equals1 unit.",
+                "created_at":"2016-12-23T03: 15: 22+00: 00"
+            },
+            {
+                "status":"processing_exception",
+                "comment":"Shortage confirmed, 1 pair of brushes equals1 unit.",
+                "created_at":"2016-12-23T03: 15: 25+00: 00"
+            },
+            {
+                "status":"processing_exception",
+                "comment":"Shortage confirmed, 1 pair of brushes equals1 unit.",
+                "created_at":"2016-12-23T03: 15: 28+00: 00"
+            },
+            {
+                "status":"processing_exception",
+                "comment":"Shortage confirmed,1 pair of brushes equals1 unit.",
+                "created_at":"2016-12-23T03: 15: 31+00: 00"
+            },
+            {
+                "status":"processed",
+                "comment":null,
+                "created_at":"2016-12-23T03: 15: 33+00: 00"
+            },
+            {
+                "status":"putting_away",
+                "comment":null,
+                "created_at":"2016-12-23T19: 57: 26+00: 00"
+            },
+            {
+                "status":"put_away",
+                "comment": null,
+                "created_at": "2016-12-23T20:25:55+00:00"
+            },
+            {
+               "status": "complete",
+               "comment": null,
+               "created_at": "2016-12-23T20:25:55+00:00"
+             }
+       ]
+ }
