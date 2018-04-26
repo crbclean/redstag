@@ -6,6 +6,7 @@ var redstag = require ("../index.js");
 
 
 function myConnect(next) {
+    
     // add your username and token here
     var user =  "demo";
     var token =  "alkdfjasdkfjasdkf";
