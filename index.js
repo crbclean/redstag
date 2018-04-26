@@ -94,18 +94,23 @@ function queryAllOrders (callback) {
     var filter = null; // null means no filter
     var options = null; // null means no options
     var resultFields = "*"; // * equals to all fields
-    // queryOrders (filter, options, resultFields, callback);
-    paginate ( queryOrdersPage, 100, filter, resultFields, callback); 
-}
-
-function queryOrdersPage (pageNumber, filter, resultFields, callback) {
-    var options = { limit: 100, page: pageNumber}; 
     queryOrders (filter, options, resultFields, callback);
+   
+}
+function queryOrders (filter, options, resultFields, callback) {
+    paginate ( queryOrdersPage, 100, filter, options, resultFields, callback); 
+}
+  
+function queryOrdersPage (pageNumber, filter, options, resultFields, callback) {
+    console.log("queryOrdersPage:" + pageNumber);
+    if ( (options == null) || (options == undefined) ) options = {};
+    options.limit = 100;
+    options.page = pageNumber; 
+    queryOrdersRaw (filter, options, resultFields, callback);
 }
 
 
-
-function queryOrders (filter, options, resultFields, callback) {
+function queryOrdersRaw (filter, options, resultFields, callback) {
     clientrequest( "order.search", [filter,options,resultFields], function (err, res) {
         if (err) {
             //console.log("queryAllOrders error: " + err);
@@ -330,40 +335,42 @@ var shippingMethodsAVAILABLE = shippingMethodsFEDEX.concat (shippingMethodsEXTER
 
 // Export ***************************************************
 
-module.exports.setDebug = setDebug;
-module.exports.connect = connect;
-
-// Order
-module.exports.queryAllOrders = queryAllOrders;
-module.exports.queryOrders = queryOrders;
-module.exports.createOrder = createOrder;
-module.exports.orderInfo = orderInfo;
-module.exports.orderUpdate = orderUpdate;
-
-// Shipments
-module.exports.queryAllShipments = queryAllShipments;
-
-// Deliveries
-module.exports.queryDeliveries = queryDeliveries;
-module.exports.createDelivery = createDelivery;
-
-// Inventory
-module.exports.queryInventory = queryInventory;
-
-// Stores
-module.exports.queryStores = queryStores;
-
-// Warehouses
-module.exports.queryWarehouses = queryWarehouses;
-
-// Shipping Methods
-module.exports.shippingMethodsFEDEX = shippingMethodsFEDEX;
-module.exports.shippingMethodsUPS = shippingMethodsUPS;
-module.exports.shippingMethodesUSPS = shippingMethodsUSPS;
-module.exports.shippingMethodsEXTERNAL = shippingMethodsEXTERNAL;
-module.exports.shippingMethodsAVAILABLE = shippingMethodsAVAILABLE;
-
-
 var helper = require("./helper.js");
-module.exports.DeliverySKUsummary = helper.DeliverySKUsummary;
-module.exports.DeliveryWeight=helper.DeliveryWeight;
+
+module.exports= {
+    setDebug,
+    connect,
+
+    // Order
+    queryAllOrders,
+    queryOrders,
+    createOrder,
+    orderInfo,
+    orderUpdate,
+
+    // Shipments
+    queryAllShipments,
+
+    // Deliveries
+    queryDeliveries,
+    createDelivery,
+
+    // Inventory
+    queryInventory,
+
+    // Stores
+    queryStores,
+
+    // Warehouses
+    queryWarehouses,
+
+    // Shipping Methods
+    shippingMethodsFEDEX,
+    shippingMethodsUPS,
+    shippingMethodsUSPS,
+    shippingMethodsEXTERNAL,
+    shippingMethodsAVAILABLE,
+
+    DeliverySKUsummary : helper.DeliverySKUsummary,
+    DeliveryWeight : helper.DeliveryWeight
+};
