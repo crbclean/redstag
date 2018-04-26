@@ -7,8 +7,8 @@ var redstag = require ("../index.js");
 
 function myConnect(next) {
     // add your username and token here
-    var user = "demo";
-    var token = "alkdfjasdkfjasdkf";
+    var user = "strongindustries"; // "demo";
+    var token = "eDFUg7usFUiPdbevgl2yKb5q"; // "alkdfjasdkfjasdkf";
 
     redstag.setDebug(false);
     redstag.connect(user, token, (err) => {
@@ -50,8 +50,6 @@ function queryOrders(next) {
             orders = orders.filter(s => s.status !== "canceled");
             console.log("orders filtered: " + orders.length);
 
-
-
             orders.map(order => {
                 if (first) {
                     first = false;
@@ -61,6 +59,7 @@ function queryOrders(next) {
                 console.log(order.created_at + " orderRef:" + order.order_ref + " " + order.state + " redstagOrderId:" + order.order_id + " " + order.shipping_description + " weight:" + order.weight);
                 //console.log(JSON.stringify(order));
             });
+            console.log("Number orders: " + orders.length);
         }
         next(err);
     });

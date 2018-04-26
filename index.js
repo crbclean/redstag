@@ -94,8 +94,16 @@ function queryAllOrders (callback) {
     var filter = null; // null means no filter
     var options = null; // null means no options
     var resultFields = "*"; // * equals to all fields
+    // queryOrders (filter, options, resultFields, callback);
+    paginate ( queryOrdersPage, 100, filter, resultFields, callback); 
+}
+
+function queryOrdersPage (pageNumber, filter, resultFields, callback) {
+    var options = { limit: 100, page: pageNumber}; 
     queryOrders (filter, options, resultFields, callback);
 }
+
+
 
 function queryOrders (filter, options, resultFields, callback) {
     clientrequest( "order.search", [filter,options,resultFields], function (err, res) {
