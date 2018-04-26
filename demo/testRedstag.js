@@ -7,8 +7,8 @@ var redstag = require ("../index.js");
 
 function myConnect(next) {
     // add your username and token here
-    var user = "strongindustries"; // "demo";
-    var token = "eDFUg7usFUiPdbevgl2yKb5q"; // "alkdfjasdkfjasdkf";
+    var user =  "demo";
+    var token =  "alkdfjasdkfjasdkf";
 
     redstag.setDebug(false);
     redstag.connect(user, token, (err) => {
