@@ -59,5 +59,7 @@ function fedexCost (clientZipCode, weight) {
 }
 
 
-module.exports.readCSV = readCSV;
-module.exports.fedexCost = fedexCost;
+module.exports = {
+    readCSV,
+    fedexCost
+};

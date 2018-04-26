@@ -288,13 +288,7 @@ function queryWarehouses (callback) {
 
 
 
-// fedexCost estimate
 
-var fedex = require ("./fedexcost.js");
-
-fedex.readCSV ( () => { console.log("fedex CSV data loaded."); } );
-module.exports.readCSV = fedex.readCSV;
-module.exports.fedexCost = fedex.fedexCost;
 
 // shipping methods
 
@@ -336,6 +330,10 @@ var shippingMethodsAVAILABLE = shippingMethodsFEDEX.concat (shippingMethodsEXTER
 // Export ***************************************************
 
 var helper = require("./helper.js");
+var fedex = require ("./fedexcost.js"); // fedexCost estimate
+
+fedex.readCSV ( () => { console.log("fedex CSV data loaded."); } );
+
 
 module.exports= {
     setDebug,
@@ -372,5 +370,9 @@ module.exports= {
     shippingMethodsAVAILABLE,
 
     DeliverySKUsummary : helper.DeliverySKUsummary,
-    DeliveryWeight : helper.DeliveryWeight
+    DeliveryWeight : helper.DeliveryWeight,
+
+    // Fedex Cost Estimate
+    readCSV : fedex.readCSV,
+    fedexCost : fedex.fedexCost
 };
