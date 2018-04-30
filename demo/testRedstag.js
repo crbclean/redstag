@@ -136,8 +136,8 @@ function createDemoOrder(next) {
 }
 
 
-function queryInventory(next) {
-    redstag.queryInventory((err, items) => {
+function queryInventory(skuItems, warehouseId, next) {
+    redstag.queryInventory(skuItems, warehouseId, (err, items) => {
         if (err) console.log("queryInventory  error");
         else {
             var first = true;
@@ -241,6 +241,8 @@ function createDemoDelivery(next) {
 }
 
 
+
+
 async.series(
     [
         myConnect,
@@ -248,9 +250,9 @@ async.series(
         // query
         queryStores,
         queryWarehouses,
-        queryOrders,
+        //queryOrders,
         //queryShipments,
-        //queryInventory,
+        R.curry(queryInventory) (null, 2), // WarehouseIds: 2,3
         //queryDeliveries,
 
         // modify

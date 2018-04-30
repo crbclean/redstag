@@ -236,9 +236,11 @@ function createDelivery  (deliveryType , deliveryData, deliveryItems, callback) 
 // inventory
 
 
-function queryInventory (callback) {
-    var skuArray = null; // if skuArray is null, then all sku will be returned
-    clientrequest( "inventory.list", [skuArray], function (err, res) {
+function queryInventory (skuArray, warehouseId, callback) {
+    //var skuArray = null; // if skuArray is null, then all sku will be returned
+    //var warehouseId = null; // if skuArray is null, then all warehouses will be returned
+    console.log(`queryInventory skuArray: ${skuArray} warehouseId: ${warehouseId}`)
+    clientrequest( "inventory.list", [skuArray, warehouseId], function (err, res) {
         if (err) { 
            console.log("inventory query error");
            callback (err,[]);
