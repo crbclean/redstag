@@ -286,36 +286,37 @@ function queryWarehouses (callback) {
     });
 }
 
-function queryProducts (filter, options, storeId, callback) {
+function queryProducts (filter, storeId, callback) {
+    paginate ( queryProductsPage, 50, filter, storeId, callback); 
+}
+
+
+function queryProductsPage (pageNumber,  filter, storeId, callback) {
 
     if (filter==undefined) filter = null; 
                         // null - Retrieve list of all products.
                         // object - Retrieve list of products using specified filters.
                         // Allowed properties for filtering: "sku", "vendor_sku", "status", "availability", "visibility", "created_at", "updated_at".
 
-    if (options == undefined) options = null; 
-    // null - No options will be applied.
-                        // object - Apply specified options.
-
+     var options = { limit: 50, page: pageNumber}; 
+ 
     if (storeId == undefined) storeId = null; 
                       // null - Default store will be used.
                       // number - Specified store will be used.
                       // string - Specified store will be used.
 
-    console.log(`queryProducts filter: ${filter} options: ${options} storeId: ${storeId}`)
+    console.log(`queryProducts filter: ${filter} storeId: ${storeId} page: ${pageNumber}`)
     clientrequest( "product.search", [filter, options, storeId], function (err, res) {
         if (err) { 
            console.log("product query error");
            callback (err,[]);
         }
         else { 
-            //console.log(res);
-            callback (err, res.result);
+            //console.log(res.result);
+            callback (err, res.result.result);
         }
     });
 }
-
-
 
 
 
@@ -355,6 +356,7 @@ module.exports= {
     queryStores,
     queryWarehouses,
     queryProducts,
+    queryProductsPage,
 
     // Shipping Methods
     shippingMethodsFEDEX: shippingMethods.shippingMethodsFEDEX,
