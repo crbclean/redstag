@@ -286,16 +286,19 @@ function queryWarehouses (callback) {
     });
 }
 
-function queryProducts (skuArray, warehouseId, callback) {
+function queryProducts (filter, options, storeId, callback) {
 
-    var filter = null; // null - Retrieve list of all products.
+    if (filter==undefined) filter = null; 
+                        // null - Retrieve list of all products.
                         // object - Retrieve list of products using specified filters.
                         // Allowed properties for filtering: "sku", "vendor_sku", "status", "availability", "visibility", "created_at", "updated_at".
 
-    var options = null; // null - No options will be applied.
+    if (options == undefined) options = null; 
+    // null - No options will be applied.
                         // object - Apply specified options.
 
-    var storeId = null; // null - Default store will be used.
+    if (storeId == undefined) storeId = null; 
+                      // null - Default store will be used.
                       // number - Specified store will be used.
                       // string - Specified store will be used.
 
