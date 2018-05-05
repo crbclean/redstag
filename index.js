@@ -286,56 +286,43 @@ function queryWarehouses (callback) {
     });
 }
 
+function queryProducts (skuArray, warehouseId, callback) {
+
+    var filter = null; // null - Retrieve list of all products.
+                        // object - Retrieve list of products using specified filters.
+                        // Allowed properties for filtering: "sku", "vendor_sku", "status", "availability", "visibility", "created_at", "updated_at".
+
+    var options = null; // null - No options will be applied.
+                        // object - Apply specified options.
+
+    var storeId = null; // null - Default store will be used.
+                      // number - Specified store will be used.
+                      // string - Specified store will be used.
+
+    console.log(`queryProducts filter: ${filter} options: ${options} storeId: ${storeId}`)
+    clientrequest( "product.list", [filter, options, storeId], function (err, res) {
+        if (err) { 
+           console.log("product query error");
+           callback (err,[]);
+        }
+        else { 
+            //console.log(res);
+            callback (err, res.result);
+        }
+    });
+}
 
 
 
 
-
-
-// shipping methods
-
-var shippingMethodsFEDEX = [
-    "fedex_FEDEX_2_DAY",    // FedEx 2Day®
-    "fedex_FEDEX_2_DAY_AM", //	FedEx 2Day® A.M.
-    "fedex_FEDEX_EXPRESS_SAVER", // 	FedEx Express Saver®
-    "fedex_FEDEX_GROUND", //	FedEx Ground®
-    "fedex_INTERNATIONAL_ECONOMY", //	FedEx International Economy®
-    "fedex_INTERNATIONAL_PRIORITY", //	FedEx International Priority®
-    "fedex_FIRST_OVERNIGHT" ,	// FedEx First Overnight®
-    "fedex_GROUND_HOME_DELIVERY", //	FedEx Home Delivery®
-    "fedex_PRIORITY_OVERNIGHT", //	FedEx Priority Overnight®
-    "fedex_STANDARD_OVERNIGHT", // FedEx Standard Overnight®
-    "fedex_SMART_POST", //
-];
-
-var shippingMethodsUPS = [
-    "ups_01", //	UPS Next Day Air
-    "ups_02", // 	UPS Second Day Air
-    "ups_03", // 	UPS Ground
-    "ups_12", // 	UPS Three-Day Select
-    "ups_14", //	UPS Next Day Air Early A.M.
-    "ups_59", //	UPS Second Day Air A.M.
-];
-
-var shippingMethodsUSPS = [ // available via stamps.com
-    "usps_US-PM", // 	USPS Priority Mail
-    "usps_US-PMI" //	USPS Priority Mail International
-];
-
-var shippingMethodsEXTERNAL = [
-    "external_ltl", // LTL (arranged by Shiphawk)
-    "external_ltl_thirdparty" // LTL - Third Party
-];
-
-	
-
-var shippingMethodsAVAILABLE = shippingMethodsFEDEX.concat (shippingMethodsEXTERNAL);
 
 
 // Export ***************************************************
 
 var helper = require("./helper.js");
 var fedex = require ("./fedexcost.js"); // fedexCost estimate
+
+var shippingMethods = require("./shippingMethods.js");
 
 fedex.readCSV ( () => { console.log("fedex CSV data loaded."); } );
 
@@ -361,18 +348,17 @@ module.exports= {
     // Inventory
     queryInventory,
 
-    // Stores
+    // Stores/Warhouses/Produts
     queryStores,
-
-    // Warehouses
     queryWarehouses,
+    queryProducts
 
     // Shipping Methods
-    shippingMethodsFEDEX,
-    shippingMethodsUPS,
-    shippingMethodsUSPS,
-    shippingMethodsEXTERNAL,
-    shippingMethodsAVAILABLE,
+    shippingMethodsFEDEX: shippingMethods.shippingMethodsFEDEX,
+    shippingMethodsUPS: shippingMethods.shippingMethodsUPS,
+    shippingMethodsUSPS: shippingMethods.shippingMethodsUSPS,
+    shippingMethodsEXTERNAL: shippingMethods.shippingMethodsEXTERNAL,
+    shippingMethodsAVAILABLE : shippingMethods.shippingMethodsAVAILABLE, 
 
     DeliverySKUsummary : helper.DeliverySKUsummary,
     DeliveryWeight : helper.DeliveryWeight,
