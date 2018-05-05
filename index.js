@@ -351,7 +351,7 @@ module.exports= {
     // Stores/Warhouses/Produts
     queryStores,
     queryWarehouses,
-    queryProducts
+    queryProducts,
 
     // Shipping Methods
     shippingMethodsFEDEX: shippingMethods.shippingMethodsFEDEX,
