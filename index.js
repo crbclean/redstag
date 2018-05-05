@@ -303,7 +303,7 @@ function queryProducts (filter, options, storeId, callback) {
                       // string - Specified store will be used.
 
     console.log(`queryProducts filter: ${filter} options: ${options} storeId: ${storeId}`)
-    clientrequest( "product.list", [filter, options, storeId], function (err, res) {
+    clientrequest( "product.search", [filter, options, storeId], function (err, res) {
         if (err) { 
            console.log("product query error");
            callback (err,[]);
