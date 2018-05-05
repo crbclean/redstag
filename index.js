@@ -323,8 +323,11 @@ var shippingMethodsUSPS = [ // available via stamps.com
 ];
 
 var shippingMethodsEXTERNAL = [
-    "external_ltl" // LTL
+    "external_ltl", // LTL (arranged by Shiphawk)
+    "external_ltl_thirdparty" // LTL - Third Party
 ];
+
+	
 
 var shippingMethodsAVAILABLE = shippingMethodsFEDEX.concat (shippingMethodsEXTERNAL);
 
