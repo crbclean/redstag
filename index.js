@@ -76,12 +76,12 @@ function createOrder (storeCode, orderItems, shippingAddress, orderAdditionalDat
     clientrequest( "order.create", [storeCode,orderItems,shippingAddress, orderAdditionalData], function (err, res) {
         if (err) {
             console.log(err);
-            callback (err, "error - connectivity?");
+            callback (new Error("connectivity?"));
         }
         else {
             if (res.error !== undefined) {
                 console.log("createOrder error: " + res.error.message);
-                callback (true, res.error.message);
+                callback (new Error(res.error.message));
             } else {
                 //console.log(res);
                 callback (false, res.result);
