@@ -30,9 +30,9 @@ function readCSV (next) {
 
 
 function fedexPrice (weight, zone) {
-   if (weight <1.0) return undefined;
    if (weight >150.0) return fedexPrice(150.0, zone) + fedexPrice(weight-150.0, zone);
    var roundedWeight = Math.round (weight); // only round number estimates in dictionary.
+   if (roundedWeight <1.0) roundedWeight = 1.0;
    return dictWeight[roundedWeight][zone-2];
 }
 
